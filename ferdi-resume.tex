@@ -1,5 +1,5 @@
-% LaTeX source of my resume
-% =========================
+% LaTeX source of my resume (FR/EN)
+% =================================
 
 % Commented for easy reuse... ;)
 
@@ -7,25 +7,55 @@
 
 % This file is licensed under the CC-NC-ND Creative Commons license.
 
-
 % Start a document with the here given default font size and paper size.
 \documentclass[10pt,letterpaper]{article}
+
+\usepackage{etoolbox}
+\newtoggle{french}
+\newtoggle{1colsummary}
+\newtoggle{2colsummary}
+
+
+% Use 1colsummary by default, comment to unused
+\toggletrue{1colsummary}
+%\toggletrue{2colsummary}
+
+% =============================================
+% If French is disabled, use English by default
+% Comment the line below to use English
+% ---------------------------------------------
+%\toggletrue{french}
+% =============================================
 
 % Set the page margins.
 \usepackage[letterpaper,margin=0.5in]{geometry}
 
 % Setup the language.
-\usepackage[english]{babel}
+\iftoggle{french}
+{\usepackage[francais]{babel}}
+{\usepackage[english]{babel}}
+
 \hyphenation{Some-long-word}
 
 % Makes resume-specific commands available.
 \usepackage{resume}
 
+% Allows us to use \shortdate
+\usepackage[nodayofweek]{datetime}
+
 \begin{document}  % begin the content of the document
 \sloppy  % this to relax whitespacing in favour of straight margins
 
 % title on top of the document
-\maintitle{Ferdian Pratama}{Business Intelligence Consultant}{Last update on \today}
+\maintitle{Ferdian Pratama}{%
+  \iftoggle{french}
+  {Consultant BI}
+  {Business Intelligence Consultant}
+}{%
+  \iftoggle{french}
+  {Dernière mise à jour le}
+  {Last update on} \shortdate\today
+}
 
 \nobreakvspace{0.3em}  % add some page break averse vertical spacing
 
@@ -40,47 +70,86 @@
 %\href{http://www.github.com/noxouille}{github.com/noxouille}\sbull
 \href{http://linkedin.com/in/ferdipratama}{linkedin.com/in/ferdipratama}
 \\
-395 rue du Chardonnay app. 204\sbull
+395 rue du Chardonnay app.\ 204\sbull
 Sherbrooke, J1L0J3\sbull
-Quebec\sbull
+Québec\sbull
 Canada
 
 \spacedhrule{0.9em}{-0.4em}  % a horizontal line with some vertical spacing before and after
 
-%-------
-\roottitle{Summary} % Root section title
+% ----- 1 col summary BEGIN
+\iftoggle{1colsummary}{%
+\roottitle{%
+  \iftoggle{french}
+  {Sommaire}
+  {Summary}
+}
 
-Quality-oriented professional with 3 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code.
+\iftoggle{french}{%
+Professionnel orienté vers la qualité du produit final avec 3 ans d'expérience et une connaissance confirmée de l'analyse de données, de la recherche et développement et de la planification de projets. Je suis fier d’écrire un code propre, concis, facile à lire et à mettre à jour. Présentement, je perfectionne mon experience dans le domaine de l'intelligence d'affaire afin d'y construire ma carrière.
+}{%
+Quality-oriented professional with 3 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code. Currently honing my experience and building my career in Business Intelligence field.
+}
 
 \spacedhrule{0.5em}{-0.4em}
-%-------
+}
+% ----- 1 col summary END
 
-%\roottitle{Summary}  % a root section title
-%
-%\vspace{-1.3em}  % some vertical spacing
-%\begin{multicols}{2}  % open a multicolumn environment
-%\noindent \emph{Entrepeneurial geek with roots in the open source movement. Passionately enabling software-related teams to deliver. Creates/\,structures/\,improves processes. Architects and helps to implement future-proof solutions. Coaches both individuals and groups.}
-%\\
-%\\
-%At the age of seven (1989) Cies wrote his first lines of code in a \acr{LOGO}-like language on an \acr{MSX} (pre-\acr{PC}).  Two years later he attended a conference on an emerging new technology, the Internet, at the Erasmus University from which he would graduate 16 years later (2000) with a degree in Business Computer Science.
-%
-%After being introduced to the open source movement in 1997, he taught himself a variety of skills including system administration and programming (Bash, Python, Ruby \& \CPP).  By 2002 he got his pet project \acr{KT}urtle ---a zero-entry-barrier programming environment--- included in \acr{KDE}'s \emph{edu} module, and thereby in almost every Linux distribution.
-%
-%Extensively travelled Europe and Asia after graduating. On return his professional life became a mix of hands-on work in startups and web software agencies, while settling as a husband and father in personal life.
-%\end{multicols}
+% ----- 2 col summary BEGIN
+\iftoggle{2colsummary}{%
+\roottitle{%
+  \iftoggle{french}
+  {Sommaire}
+  {Summary}
+}
+
+\vspace{-1.3em}  % some vertical spacing
+\begin{multicols}{2}  % open a multicolumn environment
+\noindent \emph{%
+  \iftoggle{french}{%
+  Professionnel orienté vers la qualité du produit final avec 3 ans d'expérience et une connaissance confirmée de l'analyse de données, de la recherche et développement et de la planification de projets. Je suis fier d’écrire un code propre, concis, maintenable et facile à lire.
+  }{%
+  Quality-oriented professional with 3 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code.
+  }
+}
+\\
+\\
+At the age of seven (1989) Cies wrote his first lines of code in a \acr{LOGO}-like language on an \acr{MSX} (pre-\acr{PC}).  Two years later he attended a conference on an emerging new technology, the Internet, at the Erasmus University from which he would graduate 16 years later (2000) with a degree in Business Computer Science.
+
+After being introduced to the open source movement in 1997, he taught himself a variety of skills including system administration and programming (Bash, Python, Ruby \& \CPP).  By 2002 he got his pet project \acr{KT}urtle ---a zero-entry-barrier programming environment--- included in \acr{KDE}'s \emph{edu} module, and thereby in almost every Linux distribution.
+
+Extensively travelled Europe and Asia after graduating. On return his professional life became a mix of hands-on work in startups and web software agencies, while settling as a husband and father in personal life.
+\end{multicols}
 
 
-%\spacedhrule{0em}{-0.4em}
+\spacedhrule{0em}{-0.4em}
+}
+% ----- 2 col summary END
 
-\roottitle{Experience}
+\roottitle{%
+  \iftoggle{french}
+  {Expériences Professionnelles}
+  {Experience}
+}
 
 \headedsection
-  {\href{https://www.cgi.com/en}{CGI}}
+  {\href{https://www.cgi.com/en}{\acr{CGI}}}
   {\textsc{Sherbrooke, \acr{QC}}} {%
-  \headedsubsection
-    {\acr{BI} Developer} %{D\'eveloppeur \acr{BI}}
-    {Oct '19 -- Present}
-    {\bodytext{\acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. My responsibility covers mainly \acr{ETL} using Talend.}}
+  \headedsubsection{%
+    \iftoggle{french}
+    {D\'eveloppeur \acr{BI}}
+    {\acr{BI} Developer}
+  }{%
+    \iftoggle{french}
+    {oct.\ '19 -- Présent}
+    {Oct.\ '19 -- Present}
+  }{%
+    \bodytext{%
+      \iftoggle{french}{%
+      \acr{CGI} est une entreprise Canadienne d’envergure mondiale de services-conseils en technologie de l’information, d’intégration de systèmes, d’impartition et de solutions. Ma responsabilité couvre principalement le traitement d’\acr{ETL} avec Talend.
+      }{%
+      \acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. My responsibility covers mainly \acr{ETL} using Talend.
+  }}}
     
 %    \headedsubsection
 %    {Future position at \acr{CGI}}
@@ -89,99 +158,202 @@ Quality-oriented professional with 3 years of experience and a proven knowledge 
 }
 
 \headedsection
-  {\href{https://www.ask-corp.jp}{ASK Corporation}}
+  {\href{https://www.ask-corp.jp}{\acr{ASK} Corporation}}
   {\textsc{Tokyo, \acr{JP}}} {%
-  \headedsubsection
+  \headedsubsection{%
+    \iftoggle{french}
+    {Scientifiques de Données}
     {Data Scientist}
-    {Apr '18 -- Jun '19}
-    {\bodytext{\acr{ASK} Corporation is one of the leading distributors of \acr{PC} parts in Japan.
-    \begin{itemize}
-    \item Provide consulting service and devise Proof of Concept deep learning solutions based on clients' requirements.
-    \item Increased the sales of deep learning hardwares based on consulting and \acr{PoC} resulting in 35\% profit rate.
-    \end{itemize}}}
-}
+  }{%
+    \iftoggle{french}
+    {avril '18 -- juin '19}
+    {Apr.\ '18 -- June '19}
+  }{%
+    \bodytext{%
+      \iftoggle{french}{%
+      \acr{ASK} Corporation est l'un des principaux distributeurs de composants \acr{PC} au Japon.
+      \renewcommand{\labelitemi}{$\bullet$}
+      \begin{itemize}
+      	\item Fournir des services de conseil et concevoir des solutions Deep Learning preuve de concept basées sur les exigences des clients.
+      	\item Augmentation des ventes de matériels Deep Learning basés sur le conseil et la gestion de contenu, générant un taux de profit de 35\%.
+      \end{itemize}
+      }{%
+      \acr{ASK} Corporation is one of the leading distributors of \acr{PC} parts in Japan.
+      \begin{itemize}
+      \item Provide consulting service and devise Proof of Concept deep learning solutions based on clients' requirements.
+      \item Increased the sales of deep learning hardwares based on consulting and \acr{PoC} resulting in 35\% profit rate.
+      \end{itemize}
+}}}}
 
 \headedsection 
-  {\href{https://mjirobotics.co.jp/en/}{MJI Robotics}}
+  {\href{https://mjirobotics.co.jp/en/}{\acr{MJI} Robotics}}
   {\textsc{Tokyo, \acr{JP}}} {%
-  \headedsubsection
+  \headedsubsection{%
+    \iftoggle{french}
+    {Ingénieur R\&D en Chef}
     {Lead \acr{R\&D} Engineer}
-    {Mar '17 -- Mar '18}
-    {\bodytext{MJI Robotics develops \acr{TAPIA}, a communication robot.
-    \begin{itemize}
-    \item Delivered Nurse \acr{TAPIA} project for nursing home using deep learning to monitor patient status in each room.
-    \item Trained and deployed object detection, image captioning, and face recognition model using TensorFlow and TensorRT.
-    \item Managed infrastructure and microservices for \acr{AI} production server, ensuring high throughput and low latency.
-    \end{itemize}}}
-}
+  }{%
+    \iftoggle{french}
+    {mars '17 -- mars '18}
+    {Mar.\ '17 -- Mar.\ '18}
+  }{%
+    \bodytext{%
+      \iftoggle{french}{%
+      \acr{MJI} Robotics développant un robot assistant appelé ``\acr{TAPIA}''.
+      \renewcommand{\labelitemi}{$\bullet$}
+      \begin{itemize}
+      	\item Réussite du projet ``Nurse \acr{TAPIA}'' pour les maisons de retraite utilisant Deep Learning pour surveiller le statut du patient dans chaque chambre.
+      	\item Modèles formés et déployés pour la détection d'objets et l'image captioning avec TensorFlow et TensorRT.
+      	\item Maintenance de l'infrastructure du serveur de production d'\acr{IA}, assurant un débit élevé et une latence faible.
+      \end{itemize}
+      }{%
+      \acr{MJI} Robotics develops \acr{TAPIA}, a communication robot.
+      \begin{itemize}
+      \item Delivered Nurse \acr{TAPIA} project for nursing home using deep learning to monitor patient status in each room.
+      \item Trained and deployed models for object detection and image captioning with TensorFlow and TensorRT.
+      \item Maintained the \acr{AI} production server infrastructure, ensuring high throughput and low latency.
+      \end{itemize}
+}}}}
 
 \headedsection
-{\href{http://www.plenrobotics.com/en/index.html}{Plen Robotics}}
-{\textsc{Osaka, \acr{JP}}} {
+  {\href{http://www.plenrobotics.com/en/index.html}{Plen Robotics}}
+  {\textsc{Osaka, \acr{JP}}} {%
 %{\href{http://edu.kde.org/kturtle}{edu.kde.org/kturtle}} {
-
-\headedsubsection
-  {Software Engineer Intern}
-  {Sep '16 -- Dec '16}
-  {\bodytext{Plen Robotics develops miniature robot series for entertainment.
-    \begin{itemize}
-    \item Developed Plen\acr{CUBE} album art display feature using \acr{ROS} in C++ and its Android App prototype.
-    \item Implemented file sharing protocol, which allows you to sync, view and share your photos taken directly from Plen\acr{CUBE} right from your smartphone.
-    \item Reduced video streaming latency by 73\% within 3 days.
-    \end{itemize}}}
-}
+  \headedsubsection{%
+    \iftoggle{french}
+    {Stagiaire Ingénieur Logiciel}
+    {Software Engineer Intern}
+  }{
+    \iftoggle{french}
+    {sept.\ '16 -- déc.\ '16}
+    {Sept.\ '16 -- Dec.\ '16}
+  }{%
+    \bodytext{
+      \iftoggle{french}{%
+      Plen Robotics développe des séries de robots miniatures pour le divertissement.
+      \renewcommand{\labelitemi}{$\bullet$}
+      \begin{itemize}
+      	\item Développement de la fonctionnalité d'affichage d'art d'album Plen\acr{CUBE} à l'aide de \acr{ROS} en C ++ et de son prototype d'application Android.
+      	\item Implémentation du Protocole de partage de fichiers pour synchroniser, afficher et partager vos photos de Plen\acr{CUBE} sur votre smartphone.
+      	\item Réduction de la latence de diffusion vidéo de 73\% en 3 jours.
+      \end{itemize}
+      }{%
+      Plen Robotics develops miniature robot series for entertainment.
+      \begin{itemize}
+      \item Developed Plen\acr{CUBE} album art display feature using \acr{ROS} in C++ and its Android App prototype.
+      \item Implemented file sharing protocol to sync, view and share your photos from Plen\acr{CUBE} to your smartphone.
+      \item Reduced video streaming latency by 73\% within 3 days.
+      \end{itemize}
+}}}}
 
 \vspace{-0.2em}
 \begin{center}
+\iftoggle{french}{%
+\textit{Veuillez vous référer à \href{http://linkedin.com/in/ferdipratama}{mon profil LinkedIn} pour la liste complète de mes expériences professionnelles avec des recommandations.}
+}{%
 \textit{Please refer to \href{http://linkedin.com/in/ferdipratama}{my LinkedIn profile} for the complete list of work experiences along with recommendations.}
+}
 \end{center}
 
 
 \spacedhrule{-0.2em}{-0.4em}
 
-\roottitle{Education}
-
-\headedsection
-{\href{https://www.jaist.ac.jp/english/}{\acr{JAIST}}}
-{\textsc{Ishikawa, Japan}} {
-
-\headedsubsection
-{Doctor of Philosophy \textnormal{(Information Science)}}
-{2013 -- 2016}
-%{\bodytext{Focussed on the economics of open source, rapid application development (\acr{RAD}) and the semantic web technology stack (\acr{RDF}/\acr{RDFS}, \acr{OWL} and \acr{SPARQL}).}}
-%}
-
-\headedsubsection
-{Master of Science \textnormal{(Information Science)}}
-{2011 -- 2013} {}
+\roottitle{
+  \iftoggle{french}
+  {Parcours Scolaire}
+  {Education}
 }
 
 \headedsection
-{\href{https://www.sgu.ac.id/}{Swiss German University}}
-{\textsc{\acr{BSD} City, Indonesia}} {
+  {\href{https://www.jaist.ac.jp/english/}{\acr{JAIST}}}
+  {\textsc{Ishikawa, 
+    \iftoggle{french}
+    {Japon}
+    {Japan}
+  }} {
 
-\headedsubsection
-{Bachelor of Engineering \textnormal{(Mechatronics)}}
-{2006 -- 2010} {}
+  \headedsubsection{%
+    \iftoggle{french}{%
+    Docteur en philosophie \textnormal{(Science de l'information)}
+    }{%
+    Doctor of Philosophy \textnormal{(Information Science)}
+  }}
+  {2013 -- 2016} {}
+%{\bodytext{Focussed on the economics of open source, rapid application development (\acr{RAD}) and the semantic web technology stack (\acr{RDF}/\acr{RDFS}, \acr{OWL} and \acr{SPARQL}).}}
+%}
+
+  \headedsubsection{%
+    \iftoggle{french}{%
+    Maîtrise en sciences \textnormal{(Science de l'information)}
+    }{%
+    Master of Science \textnormal{(Information Science)}
+  }}
+  {2011 -- 2013} {}
+}
+
+\headedsection
+  {\href{https://www.sgu.ac.id/}{Swiss German University}}
+  {\textsc{\acr{BSD} City, 
+    \iftoggle{french}
+    {Indonesie}
+    {Indonesia}
+  }} {
+
+  \headedsubsection{%
+    \iftoggle{french}{%
+    Baccalauréat en génie \textnormal{(Mechatronics)}
+    }{%
+    Bachelor of Engineering \textnormal{(Mechatronics)}
+  }}
+  {2006 -- 2010} {}
 }
 
 \spacedhrule{0.5em}{-0.4em}
 
-\roottitle{Skills}
+\roottitle{
+  \iftoggle{french}
+  {Compétences clés}
+  {Skills}
+}
 
 \inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
   {BI \& Databases:}
-  {Talend, Tableau, Mongo\acr{DB}, \acr{SQL}ite, Postgres\acr{SQL}, My\acr{SQL}}
-\vspace{0.5em}
+  {Talend, Tableau, Mongo\acr{DB}, \acr{SQL}ite, Postgres\acr{SQL}, My\acr{SQL}
+  }
 
-\inlineheadsection
+\vspace{
+\iftoggle{french}
+{1.0em}
+{0.5em}
+}
+
+\inlineheadsection{%
+  \iftoggle{french}
+  {Langages de Programmation \& Outils:}
   {Programming Languages \& Tools:}
+  }
   {Python, C++, bash, Git, Docker, Ansible, Flask, \acr{JIRA}}
-\vspace{0.5em}
 
-\inlineheadsection
-  {Natural languages:}
-  {Indonesian \textit{(native)}, English \textit{(full professional proficiency)}, Japanese \textit{(limited working proficiency)}, and French \textit{(elementary proficiency)}.}
+\vspace{
+\iftoggle{french}
+{1.0em}
+{0.5em}
+}
+
+\inlineheadsection{%
+  \iftoggle{french}
+  {Langues:}
+  {Languages:}
+  }{%
+%    \iftoggle{french}{%
+%    Indonésien \textit{(natif)}, Anglais \textit{(courant)}, Japonais \textit{(\acr{JLPT} N3)} et Français \textit{(A2)}.
+%    }{%
+%    Indonesian \textit{(native)}, English \textit{(fluent)}, Japanese \textit{(\acr{JLPT} N3)}, and French \textit{(A2)}.
+    \iftoggle{french}{%
+    Indonésien \textit{(natif)}, Anglais \textit{(compétences professionnelles complètes)}, Japonais \textit{(compétences professionnelles limitées)} et Français \textit{(compétences élémentaires)}.
+    }{%
+    Indonesian \textit{(native)}, English \textit{(full professional proficiency)}, Japanese \textit{(limited working proficiency)}, and French \textit{(elementary proficiency)}.
+}}
 
 %\spacedhrule{1.6em}{-0.4em}
 %
