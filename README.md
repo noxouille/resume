@@ -3,6 +3,7 @@
  * Is a [nicely typeset 2-page PDF](https://rawgithub.com/cies/resume/master/cies-breijs-resume.pdf) (click the link to download mine)
  * Compiles with or without installing software (read more below).
  * Might well be a starting point for your very own Latex resume.
+ * Modified the format with EN/FR bilingual resume with a convenient language toggle switch
 
 Linkedin serves well, but not in all situations.  At some point my profile
 just cluttered up, while all I wanted 'them' to have is a good looking
