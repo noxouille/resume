@@ -316,9 +316,12 @@ Extensively travelled Europe and Asia after graduating. On return his profession
   {Skills}
 }
 
-\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+\inlineheadsection{% Special section that has an inline header with a 'hanging' paragraph
+  \iftoggle{french}
+  {BI \& Base de données:}
   {BI \& Databases:}
-  {Talend, Tableau, Mongo\acr{DB}, \acr{SQL}ite, Postgres\acr{SQL}, My\acr{SQL}
+  }
+  {Azure Databricks, Spark, Talend, Tableau, Mongo\acr{DB}, \acr{SQL}ite, Postgres\acr{SQL}, My\acr{SQL}
   }
 
 \vspace{
@@ -329,10 +332,10 @@ Extensively travelled Europe and Asia after graduating. On return his profession
 
 \inlineheadsection{%
   \iftoggle{french}
-  {Langages de Programmation \& Outils:}
-  {Programming Languages \& Tools:}
+  {Langages de Programmation \& DevOps:}
+  {Programming Languages \& DevOps:}
   }
-  {Python, C++, bash, Git, Docker, Ansible, Flask, \acr{JIRA}}
+  {Python, C++, UNIX scripting, Git, TravisCI, Docker, Ansible, Flask, \acr{JIRA}}
 
 \vspace{
 \iftoggle{french}
