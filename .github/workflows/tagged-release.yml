@@ -42,6 +42,7 @@ jobs:
       - name: Release EN Resume PDF
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          name: ferdi-resume-EN.pdf
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: ferdi-resume-EN.pdf
@@ -68,6 +69,7 @@ jobs:
       - name: Release FR Resume PDF
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          name: ferdi-resume-FR.pdf
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: ferdi-resume-FR.pdf
