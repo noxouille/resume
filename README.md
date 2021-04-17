@@ -1,3 +1,5 @@
+[![tagged-release](https://github.com/noxouille/resume/actions/workflows/tagged-release.yml/badge.svg)](https://github.com/noxouille/resume/actions/workflows/tagged-release.yml)
+
 # My Latex resume
 
  * Is a [nicely typeset 2-page PDF](https://rawgithub.com/cies/resume/master/cies-breijs-resume.pdf) (click the link to download mine)
