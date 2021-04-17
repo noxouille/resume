@@ -7,9 +7,8 @@ on:
   # Triggers the workflow on pull request events but only for the master branch
   pull_request:
     branches: [ master ]
-    paths: |
-      ferdi-resume.tex
-      resume.sty
+    paths-ignore:
+    - 'README.md'
     tags:
       - "v*"
 

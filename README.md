@@ -27,32 +27,10 @@ A 'last updated at' date is printed on the top-right of the page.
 
 Obviously it only relies on open source stuff.
 
-
-
 ## Generating the PDF
 
-There are several ways to generate a PDF from the Latex sources.
-
-
-#### Using ShareLatex (no need to install any software)
-
-[ShareLatex](http://www.sharelatex.com) is a web application for creating
-and collaborating on LaTeX documents.  They have a free account that
-can be used to compile this resume.
-
-To get this resume compiled into a PDF with ShareLatex:
-
-  1. Go to [sharelatex.com](http://www.sharelatex.com) and create first an account and then a project.
-  2. In your new project replace the content of the `main.tex` file with the LaTeX source of resume's content (`cies-breijs-resume.tex` in this case) from Github.
-  3. In your new project create a new file `resume.sty` and copy-paste
-     the content of the same named file from the Github repo.
-  4. Finally hit the "Compile" button to view and/or download the resulting PDF.
-
-The result will be nice, but IMO will be nicer if you change the
-rendering engine to XeLaTeX -- you can do so from the projects 'Setting' form
-which hides behind the gear-icon on the left.
-
-*TIP:* In the 'User Settings' (under 'Account' menu in the top-right) form you can set the spell-check language.
+Get the latest version in the [Latest Release](https://github.com/noxouille/resume/releases/tag/latest).
+Github Action will generate the PDF for both EN & FR ver.
 
 
 #### Using XeLaTeX
