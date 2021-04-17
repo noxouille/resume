@@ -31,7 +31,7 @@ jobs:
         run: for FILE in "EN" "FR"; do cp ferdi-resume.tex ferdi-resume-$FILE.tex; done
       
       - name: Create the EN source file
-        run: sed -i 's/\toggletrue{french}/#\toggletrue{french}/' ferdi-resume-EN.tex
+        run: sed -i 's|\toggletrue{french}||' ferdi-resume-EN.tex
           
       - name: Compile
         uses: xu-cheng/latex-action@v2
