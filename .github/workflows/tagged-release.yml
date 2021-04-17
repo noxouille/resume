@@ -26,7 +26,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: install fonts
         run: sudo apt-get -y install tex-gyre
   
@@ -34,7 +34,7 @@ jobs:
         run: for FILE in "EN" "FR"; do cp ferdi-resume.tex ferdi-resume-$FILE.tex; done
       
       - name: Create the EN source file
-        run: sed -i 's|\toggletrue{french}||' ferdi-resume-EN.tex
+        run: sed -i 's|\toggletrue{french}||' ferdi-resume-EN.tex | tee ferdi-resume-EN.tex
           
       - name: Compile
         uses: xu-cheng/latex-action@v2
