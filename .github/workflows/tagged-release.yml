@@ -45,7 +45,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: ferdi-resume-EN.pdf
-        id: "automatic_releases"
+          automatic_release_tag: "latest"
 
   publish-FR:
     # The type of runner that the job will run on
@@ -71,4 +71,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: ferdi-resume-FR.pdf
-        id: "automatic_releases"
+          automatic_release_tag: "latest"
