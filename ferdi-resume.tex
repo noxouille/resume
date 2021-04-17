@@ -32,7 +32,7 @@
 
 % Setup the language.
 \iftoggle{french}
-{\usepackage[francais]{babel}}
+{\usepackage[french]{babel}}
 {\usepackage[english]{babel}}
 
 \hyphenation{Some-long-word}
@@ -49,8 +49,8 @@
 % title on top of the document
 \maintitle{Ferdian Pratama}{%
   \iftoggle{french}
-  {Consultant BI}
-  {Business Intelligence Consultant}
+   {D\'eveloppeur \acr{IaC} - Azure}
+   {Azure \acr{IaC} Developer}
 }{%
   \iftoggle{french}
   {Dernière mise à jour le}
@@ -70,8 +70,8 @@
 %\href{http://www.github.com/noxouille}{github.com/noxouille}\sbull
 \href{http://linkedin.com/in/ferdipratama}{linkedin.com/in/ferdipratama}
 \\
-395 rue du Chardonnay app.\ 204\sbull
-Sherbrooke, J1L0J3\sbull
+305-3553 rue Nicolas-Scheib\sbull
+Sherbrooke, J1L0J2\sbull
 Québec\sbull
 Canada
 
@@ -86,9 +86,10 @@ Canada
 }
 
 \iftoggle{french}{%
-Professionnel orienté vers la qualité du produit final avec 3 ans d'expérience et une connaissance confirmée de l'analyse de données, de la recherche et développement et de la planification de projets. Je suis fier d’écrire un code propre, concis, facile à lire et à mettre à jour. Présentement, je perfectionne mon experience dans le domaine de l'intelligence d'affaire afin d'y poursuivre ma carrière.
+Professionnel orienté vers la qualité du produit final avec 5 ans d'expérience et une connaissance confirmée de l'analyse de données, de la recherche et développement et de la planification de projets. Je suis fier d’écrire un code propre, concis, facile à lire et à mettre à jour. Présentement, je suis à la recherche de nouveaux défis.
+%Présentement, je perfectionne mon experience dans le domaine de l'intelligence d'affaire afin d'y poursuivre ma carrière.
 }{%
-Quality-oriented professional with 3 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code. Currently honing my experience and pursuing my career in Business Intelligence field.
+Quality-oriented professional with 5 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code. Currently looking for new challenges. %Currently honing my experience and pursuing my career in Business Intelligence field.
 }
 
 \spacedhrule{0.5em}{-0.4em}
@@ -107,9 +108,9 @@ Quality-oriented professional with 3 years of experience and a proven knowledge 
 \begin{multicols}{2}  % open a multicolumn environment
 \noindent \emph{%
   \iftoggle{french}{%
-  Professionnel orienté vers la qualité du produit final avec 3 ans d'expérience et une connaissance confirmée de l'analyse de données, de la recherche et développement et de la planification de projets. Je suis fier d’écrire un code propre, concis, facile à lire et à mettre à jour. Présentement, je perfectionne mon experience dans le domaine de l'intelligence d'affaire afin d'y poursuivre ma carrière.
+  Professionnel orienté vers la qualité du produit final avec 5 ans d'expérience et une connaissance confirmée de l'analyse de données, de la recherche et développement et de la planification de projets. Je suis fier d’écrire un code propre, concis, facile à lire et à mettre à jour. Présentement, je perfectionne mon experience dans le domaine de l'intelligence d'affaire afin d'y poursuivre ma carrière.
   }{%
-  Quality-oriented professional with 3 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code. Currently honing my experience and pursuing my career in Business Intelligence field.
+  Quality-oriented professional with 5 years of experience and a proven knowledge of data analysis, research and development, and project planning. I take pride in writing clean, concise, maintainable, and easy-to-read code. Currently honing my experience and pursuing my career in Business Intelligence field.
   }
 }
 \\
@@ -135,26 +136,83 @@ Extensively travelled Europe and Asia after graduating. On return his profession
 \headedsection
   {\href{https://www.cgi.com/en}{\acr{CGI}}}
   {\textsc{Sherbrooke, \acr{QC}}} {%
+  
+    % \headedsubsection{
+    % \iftoggle{french}
+    %   {Future position (FR) at \acr{CGI}}
+    %   {Future position at \acr{CGI}}
+    % }{
+    % \iftoggle{french}
+    %   {Depuis sept.\ '20}
+    %   {Since Sept.\ '20}
+    % }
+    % {\bodytext{%
+    %   \iftoggle{french}{%
+    %     \acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. My responsibility covers mainly \acr{ETL} using Talend.
+    %     }{
+    %     \acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. My responsibility covers mainly \acr{ETL} using Talend.
+    % }}}
+    
+
+    \headedsubsection{%
+      \iftoggle{french}
+      {D\'eveloppeur \acr{IaC} - Azure}
+      {Azure \acr{IaC} Developer}
+    }{%
+      \iftoggle{french}
+      {Depuis sept.\ '20}
+      {Since Sept.\ '20}
+    }{%
+    \bodytext{%
+      \iftoggle{french}{%
+    %   \acr{CGI} est une entreprise Canadienne d’envergure mondiale de services-conseils en technologie de l’information, d’intégration de systèmes, d'impartition et de solutions. 
+%      Ma responsabilité couvre principalement le traitement d’\acr{ETL} avec Talend.
+	  \renewcommand{\labelitemi}{$\bullet$}
+	  \begin{itemize}
+      \item Configurer et tester les outils, les composantes logicielles, les environnements de développement et de déploiement en continu (DevOps).
+      \item Supporter l'opérationallisation et le déploiement des solutions de données.
+      \item Proposer des solutions techniques en collaboration avec les concepteurs.
+      \item Assurer le support à l'exploitation des solutions techniques mises en place: surveillance des plateformes et outils, disponibilité des plateformes, surveillance des solutions analytiques déployées.
+      \end{itemize}
+      }{%
+    %   \acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. 
+%      My responsibility covers mainly \acr{ETL} using Talend.
+      \begin{itemize}
+      \item Design, build and deploy BI solutions, with emphasis on ETL and data migration using Talend for BRP Sherbrooke.
+      \item Conduct unit testing, debugging, monitoring and troubleshooting BI solutions.
+      \item Evaluate and improve existing BI solutions.
+      \end{itemize}
+  }}}
+
   \headedsubsection{%
     \iftoggle{french}
     {D\'eveloppeur \acr{BI}}
     {\acr{BI} Developer}
   }{%
     \iftoggle{french}
-    {oct.\ '19 -- Présent}
-    {Oct.\ '19 -- Present}
+    {octobre '19 -- avril '20}
+    {Oct.\ '19 -- Apr.\ '20}
   }{%
     \bodytext{%
       \iftoggle{french}{%
-      \acr{CGI} est une entreprise Canadienne d’envergure mondiale de services-conseils en technologie de l’information, d’intégration de systèmes, d’impartition et de solutions. Ma responsabilité couvre principalement le traitement d’\acr{ETL} avec Talend.
+    %   \acr{CGI} est une entreprise Canadienne d’envergure mondiale de services-conseils en technologie de l’information, d’intégration de systèmes, d'impartition et de solutions. 
+%      Ma responsabilité couvre principalement le traitement d’\acr{ETL} avec Talend.
+	  \renewcommand{\labelitemi}{$\bullet$}
+	  \begin{itemize}
+      \item Concevoir, développer et déployer des solutions de BI, en mettant l’accent sur ETL et la migration des données avec Talend pour l’entreprise BRP.
+      \item Réaliser les test unitaires, le débogage, la surveillance et le dépannage des solutions de BI.
+      \item Evaluer et améliorer les solutions de BI existantes.
+      \end{itemize}
       }{%
-      \acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. My responsibility covers mainly \acr{ETL} using Talend.
+    %   \acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. 
+%      My responsibility covers mainly \acr{ETL} using Talend.
+      \begin{itemize}
+      \item Design, build and deploy BI solutions, with emphasis on ETL and data migration using Talend for BRP Sherbrooke.
+      \item Conduct unit testing, debugging, monitoring and troubleshooting BI solutions.
+      \item Evaluate and improve existing BI solutions.
+      \end{itemize}
   }}}
-    
-%    \headedsubsection
-%    {Future position at \acr{CGI}}
-%    {Oct '19 -- Present}
-%    {\bodytext{\acr{CGI} is a Canadian global information technology (\acr{IT}) consulting, systems integration, outsourcing, and solutions company. My responsibility covers mainly \acr{ETL} using Talend.}}
+
 }
 
 \headedsection
@@ -190,8 +248,8 @@ Extensively travelled Europe and Asia after graduating. On return his profession
   {\textsc{Tokyo, \acr{JP}}} {%
   \headedsubsection{%
     \iftoggle{french}
-    {Ingénieur R\&D en Chef}
-    {Lead \acr{R\&D} Engineer}
+    {Ingénieur R\&D Principal, Administrateur de Serveur}
+    {Lead \acr{R\&D} Engineer, Server Administrator}
   }{%
     \iftoggle{french}
     {mars '17 -- mars '18}
@@ -230,20 +288,20 @@ Extensively travelled Europe and Asia after graduating. On return his profession
   }{%
     \bodytext{
       \iftoggle{french}{%
-      Plen Robotics développe des séries de robots miniatures pour le divertissement.
-      \renewcommand{\labelitemi}{$\bullet$}
-      \begin{itemize}
-      	\item Développement de la fonctionnalité d'affichage d'art d'album Plen\acr{CUBE} à l'aide de \acr{ROS} en C ++ et de son prototype d'application Android.
-      	\item Implémentation du protocole de partage de fichiers pour synchroniser, afficher et partager vos photos de Plen\acr{CUBE} sur votre smartphone.
-      	\item Réduction de la latence de diffusion vidéo de 73\% en 3 jours.
-      \end{itemize}
+    %   Plen Robotics développe des séries de robots miniatures pour le divertissement.
+    %   \renewcommand{\labelitemi}{$\bullet$}
+    %   \begin{itemize}
+    %   	\item Développement de la fonctionnalité d'affichage d'art d'album Plen\acr{CUBE} à l'aide de \acr{ROS} en C ++ et de son prototype d'application Android.
+    %   	\item Implémentation du protocole de partage de fichiers pour synchroniser, afficher et partager vos photos de Plen\acr{CUBE} sur votre smartphone.
+    %   	\item Réduction de la latence de diffusion vidéo de 73\% en 3 jours.
+    %   \end{itemize}
       }{%
-      Plen Robotics develops miniature robot series for entertainment.
-      \begin{itemize}
-      \item Developed Plen\acr{CUBE} album art display feature using \acr{ROS} in C++ and its Android App prototype.
-      \item Implemented file sharing protocol to sync, view and share your photos from Plen\acr{CUBE} to your smartphone.
-      \item Reduced video streaming latency by 73\% within 3 days.
-      \end{itemize}
+    %   Plen Robotics develops miniature robot series for entertainment.
+    %   \begin{itemize}
+    %   \item Developed Plen\acr{CUBE} album art display feature using \acr{ROS} in C++ and its Android App prototype.
+    %   \item Implemented file sharing protocol to sync, view and share your photos from Plen\acr{CUBE} to your smartphone.
+    %   \item Reduced video streaming latency by 73\% within 3 days.
+    %   \end{itemize}
 }}}}
 
 \vspace{-0.2em}
@@ -316,31 +374,44 @@ Extensively travelled Europe and Asia after graduating. On return his profession
   {Skills}
 }
 
+\inlineheadsection{%
+  Certification:
+  }{%
+    Azure Fundamentals, Azure Data Scientists, Databricks Core Training Capstone, DeltaLake Accreditation
+}
+
+\vspace{
+\iftoggle{french}
+{1em}
+{0em}
+}
+
 \inlineheadsection{% Special section that has an inline header with a 'hanging' paragraph
   \iftoggle{french}
-  {BI \& Base de données:}
-  {BI \& Databases:}
+  {Stack:}
+  {Stack:}
   }
-  {Azure Databricks, Spark, Talend, Tableau, Mongo\acr{DB}, \acr{SQL}ite, Postgres\acr{SQL}, My\acr{SQL}
+  {Azure DevOps, Terraform, Databricks, AzureML, Azure BlobStorage, Snowflake, Informatica, Ansible, Docker, Git
   }
 
 \vspace{
 \iftoggle{french}
-{0.75em}
-{0.5em}
+{1em}
+{0em}
 }
 
 \inlineheadsection{%
   \iftoggle{french}
-  {Langages de Programmation \& DevOps:}
-  {Programming Languages \& DevOps:}
+  {Langages de Programmation:}
+  {Programming Languages:}
   }
-  {Python, C++, UNIX scripting, Git, TravisCI, Docker, Ansible, Flask, \acr{JIRA}}
+  {Powershell, bash, Python, C++, Scala
+  }
 
 \vspace{
 \iftoggle{french}
-{0.75em}
-{0.5em}
+{1em}
+{0em}
 }
 
 \inlineheadsection{%
@@ -353,9 +424,9 @@ Extensively travelled Europe and Asia after graduating. On return his profession
 %    }{%
 %    Indonesian \textit{(native)}, English \textit{(fluent)}, Japanese \textit{(\acr{JLPT} N3)}, and French \textit{(A2)}.
     \iftoggle{french}{%
-    Indonésien \textit{(natif)}, Anglais \textit{(compétences professionnelles complètes)}, Japonais \textit{(compétences professionnelles limitées)} et Français \textit{(compétences élémentaires)}.
+    Français \textit{(intermédiaire avancé)}, Anglais \textit{(bilingue)}, Japonais \textit{(courant)} et Indonésien \textit{(langue maternelle)}.
     }{%
-    Indonesian \textit{(native)}, English \textit{(full professional proficiency)}, Japanese \textit{(limited working proficiency)}, and French \textit{(elementary proficiency)}.
+    French \textit{(intermediate advanced)}, English \textit{(fluent)}, Japanese \textit{(limited working proficiency)} and Indonesian \textit{(native)}.
 }}
 
 %\spacedhrule{1.6em}{-0.4em}
