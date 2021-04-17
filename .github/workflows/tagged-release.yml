@@ -18,7 +18,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  publish-EN:
+  publish:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -27,50 +27,26 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
   
-      - name: Duplicate source file for the EN ver.
-        run: cp ferdi-resume.tex ferdi-resume-EN.tex
+      - name: Duplicate source file
+        run: for FILE in "EN" "FR"; do cp ferdi-resume.tex ferdi-resume-$FILE.tex; done
       
       - name: Create the EN source file
         run: sed -i 's/\toggletrue{french}/#\toggletrue{french}/' ferdi-resume-EN.tex
           
-      - name: Compile EN resume
+      - name: Compile
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: ferdi-resume-EN.tex
+          root_file: |
+            ferdi-resume-EN.tex
+            ferdi-resume-FR.tex
           latexmk_use_xelatex: true
       
-      - name: Release EN Resume PDF
+      - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: ferdi-resume-EN.pdf
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: ferdi-resume-EN.pdf
-          automatic_release_tag: "latest"
-
-  publish-FR:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-  
-      - name: Duplicate source file for the FR ver.
-        run: cp ferdi-resume.tex ferdi-resume-FR.tex
-          
-      - name: Compile FR resume
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: ferdi-resume-FR.tex
-          latexmk_use_xelatex: true
-      
-      - name: Release FR Resume PDF
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          name: ferdi-resume-FR.pdf
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: ferdi-resume-FR.pdf
+          files: |
+            ferdi-resume-EN.pdf
+            ferdi-resume-FR.pdf
           automatic_release_tag: "latest"
