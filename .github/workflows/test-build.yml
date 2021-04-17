@@ -40,10 +40,12 @@ jobs:
             ferdi-resume-FR.tex
           latexmk_use_xelatex: true
       
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2
+      - name: Draft Release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: updated-resume
-          
-      - name: Display structure of downloaded files
-        run: ls -R
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          draft: true
+          prerelease: false
+          files: |
+            ferdi-resume-EN.pdf
+            ferdi-resume-FR.pdf
