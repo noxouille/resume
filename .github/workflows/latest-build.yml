@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: "latest-build" 
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on pull request events but only for the master branch
+  pull_request:
+    branches: [ master ]
+    paths: |
+      ferdi-resume.tex
+      resume.sty
+    tags:
+      - "v*"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  publish:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      - name: install fonts
+        run: sudo apt-get -y install tex-gyre
+  
+      - name: Duplicate source file
+        run: for FILE in "EN" "FR"; do cp ferdi-resume.tex ferdi-resume-$FILE.tex; done
+      
+      - name: Delete line 27 in EN template
+        run: sed -i '27d' ferdi-resume-EN.tex
+          
+      - name: Compile
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            ferdi-resume-EN.tex
+            ferdi-resume-FR.tex
+          latexmk_use_xelatex: true
+      
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            ferdi-resume-EN.pdf
+            ferdi-resume-FR.pdf
+          automatic_release_tag: "latest"
