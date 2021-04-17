@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: Duplicate source file for the EN ver.
+        run: cp ferdi-resume.tex ferdi-resume-EN.tex
+      
       - name: Create the EN source file
         run: sed -i 's/\toggletrue{french}/#\toggletrue{french}/' ferdi-resume-EN.tex
 
