@@ -1,4 +1,5 @@
-[![tagged-release](https://github.com/noxouille/resume/actions/workflows/tagged-release.yml/badge.svg)](https://github.com/noxouille/resume/actions/workflows/tagged-release.yml)
+[![latest-build](https://github.com/noxouille/resume/actions/workflows/latest-build.yml/badge.svg)](https://github.com/noxouille/resume/actions/workflows/latest-build.yml)
+[![test-build](https://github.com/noxouille/resume/actions/workflows/test-build.yml/badge.svg?branch=test-build)](https://github.com/noxouille/resume/actions/workflows/test-build.yml)
 
 # My Latex resume
 
