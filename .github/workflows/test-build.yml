@@ -49,3 +49,4 @@ jobs:
           files: |
             ferdi-resume-EN.pdf
             ferdi-resume-FR.pdf
+          automatic_release_tag: "draft"
