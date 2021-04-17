@@ -31,10 +31,10 @@ jobs:
         run: sudo apt-get -y install tex-gyre
   
       - name: Duplicate source file
-        run: for FILE in "EN" "FR"; do cp ferdi-resume.tex ferdi-resume-$FILE.tex; done
+        run: cp ferdi-resume.tex ferdi-resume-FR.tex
       
       - name: Create the EN source file
-        run: sed -i 's|\toggletrue{french}||' ferdi-resume-EN.tex | tee ferdi-resume-EN.tex
+        run: sed -i 's|\toggletrue{french}|| w ferdi-resume-EN.tex' ferdi-resume.tex
           
       - name: Compile
         uses: xu-cheng/latex-action@v2
