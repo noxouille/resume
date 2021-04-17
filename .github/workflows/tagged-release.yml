@@ -34,7 +34,7 @@ jobs:
         run: for FILE in "EN" "FR"; do cp ferdi-resume.tex ferdi-resume-$FILE.tex; done
       
       - name: Delete line 27 in EN template
-        run: sed '27d' ferdi-resume-EN.tex
+        run: sed -i '27d' ferdi-resume-EN.tex
           
       - name: Compile
         uses: xu-cheng/latex-action@v2
