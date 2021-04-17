@@ -27,9 +27,11 @@ A 'last updated at' date is printed on the top-right of the page.
 
 Obviously it only relies on open source stuff.
 
-## Generating the PDF
+## How to update the resume contents
 
-Get the latest version in the [Latest Release](https://github.com/noxouille/resume/releases/tag/latest).
+Update the contents from the `test-build` branch.
+Every time you push changes, a new [Draft](https://github.com/noxouille/resume/releases/tag/draft) will be released.
+If you are happy with the draft, submit a Pull Request to master branch, then you can see the [Latest Release](https://github.com/noxouille/resume/releases/tag/latest).
 Github Action will generate the PDF for both EN & FR ver.
 
 
